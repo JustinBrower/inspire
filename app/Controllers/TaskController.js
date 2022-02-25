@@ -1,8 +1,20 @@
 import { ProxyState } from "../AppState.js";
 import { taskService } from "../Services/TaskService.js";
 import { loadState, saveState } from "../Utils/LocalStorage.js";
+import { Pop } from "../Utils/Pop.js"
 
 
+
+
+
+// async function _getTasks() {
+//     try {
+//         await taskService.getTasks()
+//     } catch (error) {
+//         Pop.toast(error.message, 'error')
+//         console.error(error);
+//     }
+// }
 
 function _drawTasks() {
     let template = ''
@@ -15,14 +27,15 @@ export class TaskController {
         console.log("TaskController Loaded...");
         ProxyState.on("tasks", _drawTasks)
         ProxyState.on("tasks", saveState)
+        // _getTasks()
         loadState()
     }
     async createTask() {
         window.event.preventDefault()
         let form = window.event.target
         let newTask = {
-            isDone: false,
-            text: form.text.value
+            completed: false,
+            description: form.name.value
             // this isnt working correctly
         }
         console.log(newTask);

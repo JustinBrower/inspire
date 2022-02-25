@@ -4,8 +4,8 @@ import { isValidProp } from "./Utils/isValidProp.js"
 
 const testTask = new Task(
   {
-    isDone: false,
-    text: "Test Task"
+    completed: false,
+    description: "Test Task"
   })
 
 

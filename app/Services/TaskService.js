@@ -1,9 +1,17 @@
 import { ProxyState } from "../AppState.js";
 import { Task } from "../Models/Task.js";
+import { sandboxApi } from "./AxiosService.js";
 
 
 
 class TaskService {
+    async getTasks() {
+        const res = await sandboxApi.get()
+        console.log('Getting Tasks', res.data);
+        ProxyState.tasks = res.data.results
+    }
+
+
     createTask(newTask) {
         let realTask = new Task(newTask)
         ProxyState.tasks.push(realTask)
@@ -18,10 +26,10 @@ class TaskService {
     }
     setChecked(id) {
         let checkedTask = ProxyState.tasks.find(t => t.id == id)
-        if (checkedTask.checked === "checked")
-            checkedTask.checked = ""
+        if (checkedTask.completed === "checked")
+            checkedTask.completed = ""
         else {
-            checkedTask.checked = "checked"
+            checkedTask.completed = "checked"
         }
         ProxyState.tasks = ProxyState.tasks
     }
