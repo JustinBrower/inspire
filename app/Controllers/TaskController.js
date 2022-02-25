@@ -1,6 +1,5 @@
 import { ProxyState } from "../AppState.js";
 import { taskService } from "../Services/TaskService.js";
-import { loadState, saveState } from "../Utils/LocalStorage.js";
 import { Pop } from "../Utils/Pop.js"
 
 
@@ -26,9 +25,7 @@ export class TaskController {
     constructor() {
         console.log("TaskController Loaded...");
         ProxyState.on("tasks", _drawTasks)
-        ProxyState.on("tasks", saveState)
         _getTasks()
-        loadState()
     }
     async createTask() {
         window.event.preventDefault()
