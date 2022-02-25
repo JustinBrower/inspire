@@ -8,30 +8,32 @@ class TaskService {
     async getTasks() {
         const res = await sandboxApiT.get()
         console.log('Getting Tasks', res.data);
-        ProxyState.tasks = res.data.results
+        ProxyState.tasks = res.data.map(t => new Task(t))
     }
 
-
-    createTask(newTask) {
-        let realTask = new Task(newTask)
-        ProxyState.tasks.push(realTask)
-        ProxyState.tasks = ProxyState.tasks
+    async createTask(newTask) {
+        const res = await sandboxApiT.post('', newTask)
+        console.log("Creating Task in Server...", res.data);
+        ProxyState.tasks = [...ProxyState.tasks, new Task(res.data)]
+        console.log("Created Task");
     }
 
-    deleteTask(id) {
-        let doomedTask = ProxyState.tasks.find(t => t.id == id)
-        ProxyState.tasks.splice(doomedTask, 1)
-        ProxyState.tasks = ProxyState.tasks
-        console.log("Deleted", doomedTask);
+    async deleteTask(id) {
+        await sandboxApiT.delete(id)
+        console.log('Deleting Task from Server...');
+        ProxyState.tasks = ProxyState.tasks.filter(t => t.id != id)
+        console.log("Deleted Task");
     }
-    setChecked(id) {
+
+    async setChecked(id) {
         let checkedTask = ProxyState.tasks.find(t => t.id == id)
-        if (checkedTask.completed === "checked")
-            checkedTask.completed = ""
-        else {
-            checkedTask.completed = "checked"
-        }
-        ProxyState.tasks = ProxyState.tasks
+        // if (checkedTask == true)
+        //     checkedTask = false
+        // else {
+        //     checkedTask = true
+        // }
+        checkedTask.completed = !checkedTask.completed
+        await sandboxApiT.put('/' + id, checkedTask)
     }
 }
 

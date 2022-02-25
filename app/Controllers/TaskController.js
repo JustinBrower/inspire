@@ -31,19 +31,27 @@ export class TaskController {
         window.event.preventDefault()
         let form = window.event.target
         let newTask = {
-            completed: false,
             description: form.name.value
         }
         console.log(newTask);
-        taskService.createTask(newTask)
+        try {
+            taskService.createTask(newTask)
+        } catch (error) { console.log(error); }
     }
+
     async deleteTask(id) {
-        console.log("deleting task...");
-        taskService.deleteTask(id)
+        if (await Pop.confirm())
+            try {
+                console.log("Deleting task...");
+                await taskService.deleteTask(id)
+            } catch (error) { console.log(error); }
     }
+
     async setChecked(id) {
         console.log("checking task...");
-        taskService.setChecked(id)
+        try {
+            taskService.setChecked(id)
+        } catch (error) { console.log(error); }
     }
 }
 _drawTasks()
