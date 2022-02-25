@@ -1,12 +1,12 @@
-import { Task } from "./Models/Task.js"
+// import { Task } from "./Models/Task.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
-const testTask = new Task(
-  {
-    completed: false,
-    description: "Test Task"
-  })
+// const testTask = new Task(
+//   {
+//     completed: false,
+//     description: "Test Task"
+//   })
 
 
 class AppState extends EventEmitter {
@@ -15,7 +15,7 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Tasks').tasks[]} */
 
 
-  tasks = [testTask]
+  tasks = []
 
 
 }

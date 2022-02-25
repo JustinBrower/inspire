@@ -1,12 +1,12 @@
 import { ProxyState } from "../AppState.js";
 import { Task } from "../Models/Task.js";
-import { sandboxApi } from "./AxiosService.js";
+import { sandboxApiT } from "./AxiosService.js";
 
 
 
 class TaskService {
     async getTasks() {
-        const res = await sandboxApi.get()
+        const res = await sandboxApiT.get()
         console.log('Getting Tasks', res.data);
         ProxyState.tasks = res.data.results
     }
