@@ -1,12 +1,21 @@
+import { Task } from "./Models/Task.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
+
+const testTask = new Task(
+  {
+    isDone: false,
+    text: "Test Task"
+  })
+
 
 class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
 
   /** @type {import('./Models/Tasks').tasks[]} */
 
-  tasks = []
+
+  tasks = [testTask]
 
 
 }

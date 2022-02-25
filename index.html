@@ -10,6 +10,7 @@
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
   <title>inspire</title>
 </head>
 
@@ -33,14 +34,15 @@
           <div class="col-4">
             <div class="card-body bg-info">
               <h5 class="mb-2">To Do</h5>
-              <ul class="list-group mb-0" id="tasks">
+              <ul class="list-group mb-0" id="tasks"></ul>
             </div>
-            <form class="d-flex justify-content-center align-items-center mb-4">
+            <form class="d-flex justify-content-center align-items-center mb-4" type="submit"
+              onsubmit="app.taskController.createTask()">
               <div class="form-outline flex-fill">
-                <input type="text" class="form-control required ">
-                <label class="form-label">What to do...</label>
+                <input type="text" class="form-control" value="" placeholder="What to do..." required aria-label="task"
+                  aria-describedby="task" id="name" minlength="3" maxlength="50" value="">
               </div>
-              <button type="submit" class="btn btn-primary ms-2" onclick="app.taskController.createTask()">Add</button>
+              <button class="btn btn-primary ms-2">Add</button>
             </form>
           </div>
         </div>
@@ -53,6 +55,7 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
