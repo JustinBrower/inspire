@@ -6,6 +6,6 @@ export const sandboxApiT = axios.create({
 
 // @ts-ignore
 export const sandboxApiQ = axios.create({
-    baseURL: 'https://bcw-sandbox.herokuapp.com/api/justinbrower/quotes',
+    baseURL: 'https://bcw-sandbox.herokuapp.com/api/quotes',
     timeout: 5000
 })

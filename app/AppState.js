@@ -11,10 +11,13 @@ import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
 
-  /** @type {import('./Models/Tasks').tasks[]} */
+  /** @type {import('./Models/Task').tasks[]} */
 
   tasks = []
 
+  /** @type {import('./Models/Quote').quotes[]} */
+
+  quotes = []
 
 }
 
