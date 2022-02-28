@@ -25,7 +25,6 @@ async function _drawClock() {
         seconds = "0" + seconds
     }
     let template = `<div><h1>${hours}:${minutes}:${seconds}${ampm}</h1></div>`
-    // console.log(template);
     document.getElementById('clock').innerHTML = template
 }
 
@@ -41,9 +40,11 @@ async function _getImage() {
     }
 }
 
+/// CANT GET THIS TO LOAD/FIT PROPERLY
 async function _drawImage() {
-    // let template = `<div><img id="bg" src="${ProxyState.image.largeImgUrl}" alt="background image"></img></div>`
-    // document.getElementById('image').innerHTML = template
+    let template = `<div><img src="${ProxyState.image.largeImgUrl}" alt="background image"></img></div>`
+    document.getElementsByClassName('bgImage').innerHTML = template
+    console.log("image template is...", template);
 }
 
 
@@ -53,5 +54,6 @@ export class ImageController {
         ProxyState.on("image", _drawImage)
         _findTime()
         _getImage()
+        _drawImage
     }
 }

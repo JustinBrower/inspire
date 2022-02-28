@@ -11,8 +11,6 @@ class ImageService {
         const res = await sandboxApiI.get()
         console.log("Getting Image...", res.data);
         ProxyState.image = res.data
-        console.log("Image Object is...", ProxyState.image);
-        console.log("Large image is...", ProxyState.image.largeImgUrl);
     }
 }
 
