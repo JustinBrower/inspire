@@ -12,10 +12,10 @@ async function _getQuotes() {
 
 async function _drawQuotes() {
     let template = `<div class="justify-content-center align-items-center">
-        <div>${ProxyState.quotes.content}</div>
+        <div class="text-light">${ProxyState.quotes.content}</div>
         </div>
         <div id="author" class="d-flex justify-content-center align-items-center">
-        <div>${ProxyState.quotes.author}</div>
+        <div class="text-light">${ProxyState.quotes.author}</div>
         </div>`
     document.getElementById('quotes-message').innerHTML = template
 }

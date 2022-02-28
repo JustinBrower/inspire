@@ -29,7 +29,7 @@ async function _drawClock() {
         if (seconds < 10) {
             seconds = "0" + seconds
         }
-        let template = `<div onclick="app.imageController.switchTime()"><h1>${hours}:${minutes}:${seconds}${ampm}</h1></div>`
+        let template = `<div onclick="app.imageController.switchTime()"><h1 class="text-light">${hours}:${minutes}:${seconds}${ampm}</h1></div>`
         document.getElementById('clock').innerHTML = template
 
     } else {
@@ -66,9 +66,10 @@ async function _getImage() {
 
 /// CANT GET THIS TO LOAD/FIT PROPERLY
 async function _drawImage() {
-    let template = `<div><img src="${ProxyState.image.largeImgUrl}" alt="background image"></img></div>`
-    document.getElementsByClassName('bgImage').innerHTML = template
-    console.log("image template is...", template);
+    // let template = `<div><img src="${ProxyState.image.largeImgUrl}" alt="background image"></img></div>`
+    // document.getElementsByClassName('bgImage').innerHTML = template
+    document.body.style.backgroundImage = `url(${ProxyState.image.largeImgUrl})`
+    // console.log("image template is...", template);
 }
 
 

@@ -25,9 +25,9 @@ class WeatherService {
         let template = ''
 
         if (orTemp == true) {
-            template = `<div onclick="app.weatherController.switchWeather()"><h2>${f} Degrees Farenheit</h2></div>`
+            template = `<div onclick="app.weatherController.switchWeather()"><h2 class="text-light">${f} Degrees Farenheit</h2></div>`
         } else {
-            template = `<div onclick="app.weatherController.switchWeather()"><h2>${c} Degrees Celsius</h2></div>`
+            template = `<div onclick="app.weatherController.switchWeather()"><h2 class="text-light">${c} Degrees Celsius</h2></div>`
         }
         document.getElementById('temp').innerHTML = template
     }
