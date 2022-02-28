@@ -14,6 +14,11 @@ async function _getWeather() {
 }
 
 async function _drawWeather() {
+    try {
+        await weatherService.drawWeather()
+    } catch (error) {
+        console.log(error);
+    }
 
 }
 
@@ -22,5 +27,13 @@ export class WeatherController {
         console.log("WeatherController Loaded...");
         ProxyState.on("weather", _drawWeather)
         _getWeather()
+    }
+    async switchWeather() {
+        try {
+            await weatherService.switchWeather()
+            _drawWeather()
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

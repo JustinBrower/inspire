@@ -1,1 +1,8 @@
 /* BASIC STYLES HERE */
+
+#author{
+    color: transparent
+}
+#author:hover{
+    color:black
+}

@@ -24,21 +24,14 @@ async function _drawClock() {
     if (seconds < 10) {
         seconds = "0" + seconds
     }
-    let template = `<div>${hours}:${minutes}:${seconds}${ampm}</div>`
-    console.log(template);
-    document.getElementById('clock-widget').innerHTML = template
+    let template = `<div><h1>${hours}:${minutes}:${seconds}${ampm}</h1></div>`
+    // console.log(template);
+    document.getElementById('clock').innerHTML = template
 }
 
 /// END CLOCK TEMPLATE
 
 
-
-
-async function _drawImage() {
-    let template = `<img src="${ProxyState.image.largeImgUrl}" alt="background image"></img>`
-    document.getElementById('image').innerHTML = template
-    console.log("The Controller logs template as...", template);
-}
 
 async function _getImage() {
     try {
@@ -47,6 +40,12 @@ async function _getImage() {
         console.log(error);
     }
 }
+
+async function _drawImage() {
+    // let template = `<div><img id="bg" src="${ProxyState.image.largeImgUrl}" alt="background image"></img></div>`
+    // document.getElementById('image').innerHTML = template
+}
+
 
 export class ImageController {
     constructor() {
