@@ -9,3 +9,9 @@ export const sandboxApiQ = axios.create({
     baseURL: 'https://bcw-sandbox.herokuapp.com/api/quotes',
     timeout: 5000
 })
+
+// @ts-ignore
+export const sandboxApiI = axios.create({
+    baseURL: 'https://bcw-sandbox.herokuapp.com/api/images',
+    timeout: 5000
+})

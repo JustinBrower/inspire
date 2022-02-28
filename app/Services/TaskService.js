@@ -7,7 +7,7 @@ import { sandboxApiT } from "./AxiosService.js";
 class TaskService {
     async getTasks() {
         const res = await sandboxApiT.get()
-        console.log('Getting Tasks', res.data);
+        console.log('Getting Tasks...', res.data);
         ProxyState.tasks = res.data.map(t => new Task(t))
     }
 
@@ -27,11 +27,6 @@ class TaskService {
 
     async setChecked(id) {
         let checkedTask = ProxyState.tasks.find(t => t.id == id)
-        // if (checkedTask == true)
-        //     checkedTask = false
-        // else {
-        //     checkedTask = true
-        // }
         checkedTask.completed = !checkedTask.completed
         await sandboxApiT.put('/' + id, checkedTask)
     }

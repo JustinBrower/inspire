@@ -15,9 +15,13 @@ class AppState extends EventEmitter {
 
   tasks = []
 
-  /** @type {import('./Models/Quote').quotes[]} */
+  /** @type {import('./Models/Quote').quotes{}} */
 
-  quotes = []
+  quotes = {}
+
+  /** @type {import('./Models/Image').image{}} */
+
+  image = {}
 
 }
 

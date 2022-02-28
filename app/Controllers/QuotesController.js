@@ -11,11 +11,16 @@ async function _getQuotes() {
 }
 
 async function _drawQuotes() {
-    template = ''
-    ProxyState.quotes.forEach(q => template += q.QuotesTemplate)
+    let template = ''
+    // NEED THIS TO GO THROUGH THE OBJECT AND PRINT TEMPLATE
+    // ProxyState.quotes.forEach(q => template += q.QuotesTemplate)
     document.getElementById('quotes-message').innerHTML = template
 }
 
-export class QuotesController(){
-
+export class QuotesController {
+    constructor() {
+        console.log("QuotesController Loaded...");
+        ProxyState.on("quotes", _drawQuotes)
+        _getQuotes()
+    }
 }
