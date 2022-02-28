@@ -9,7 +9,6 @@ class QuotesService {
         const res = await sandboxApiQ.get()
         console.log("Getting Quotes...", res.data);
         ProxyState.quotes = res.data
-        console.log("Quotes object is...", ProxyState.quotes);
     }
 }
 

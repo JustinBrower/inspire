@@ -4,7 +4,7 @@ import { imageService } from "../Services/ImageService.js"
 /// DRAWING THE CLOCK HERE HOPE THATS CHILL
 
 async function _findTime() {
-    console.log("setting time interval...");
+    console.log("Setting Clock...");
     setInterval(_drawClock, 1000)
 }
 
@@ -18,6 +18,8 @@ async function _drawClock() {
         hours = hours - 12
         ampm = "PM"
     }
+    if (hours == 0)
+        hours = 12
     if (minutes < 10) {
         minutes = "0" + minutes
     }
