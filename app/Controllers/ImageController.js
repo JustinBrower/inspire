@@ -13,12 +13,18 @@ async function _drawClock() {
     let hours = now.getHours();
     let minutes = now.getMinutes();
     let seconds = now.getSeconds();
-    let late = "AM"
+    let ampm = "AM"
     if (hours > 12) {
         hours = hours - 12
-        late = "PM"
+        ampm = "PM"
     }
-    let template = `<div>${hours}:${minutes}:${seconds}${late}</div>`
+    if (minutes < 10) {
+        minutes = "0" + minutes
+    }
+    if (seconds < 10) {
+        seconds = "0" + seconds
+    }
+    let template = `<div>${hours}:${minutes}:${seconds}${ampm}</div>`
     console.log(template);
     document.getElementById('clock-widget').innerHTML = template
 }
