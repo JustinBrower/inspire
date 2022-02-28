@@ -1,4 +1,5 @@
-import { sandboxApiI } from "./AxiosService";
+import { ProxyState } from "../AppState.js";
+import { sandboxApiI } from "./AxiosService.js";
 
 
 
@@ -6,9 +7,12 @@ import { sandboxApiI } from "./AxiosService";
 
 
 class ImageService {
-    constructor() {
+    async getImage() {
         const res = await sandboxApiI.get()
         console.log("Getting Image...", res.data);
+        ProxyState.image = res.data
+        console.log("Image Object is...", ProxyState.image);
+        console.log("Large image is...", ProxyState.image.largeImgUrl);
     }
 }
 
