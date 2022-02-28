@@ -19,6 +19,15 @@ function _drawTasks() {
     let template = ''
     ProxyState.tasks.forEach(t => template += t.TaskTemplate)
     document.getElementById('tasks').innerHTML = template
+
+    let completedNumber = 0
+    for (let i = 0; i < ProxyState.tasks.length; i++) {
+        if (ProxyState.tasks[i].completed == true) {
+            completedNumber++
+        }
+    }
+    let todoTemplate = `${completedNumber}/${ProxyState.tasks.length}`
+    document.getElementById("todos-complete").innerText = todoTemplate
 }
 
 export class TaskController {

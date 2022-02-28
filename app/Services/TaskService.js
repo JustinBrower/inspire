@@ -29,6 +29,7 @@ class TaskService {
         let checkedTask = ProxyState.tasks.find(t => t.id == id)
         checkedTask.completed = !checkedTask.completed
         await sandboxApiT.put('/' + id, checkedTask)
+        ProxyState.tasks = ProxyState.tasks
     }
 }
 

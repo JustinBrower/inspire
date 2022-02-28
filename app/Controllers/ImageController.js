@@ -9,6 +9,11 @@ async function _findTime() {
 }
 
 let military = true
+async function switchTime() {
+    military = !military
+}
+
+
 async function _drawClock() {
     let now = new Date();
     let hours = now.getHours();
@@ -47,9 +52,6 @@ async function _drawClock() {
     }
 }
 
-async function switchTime() {
-    military = !military
-}
 
 
 /// END CLOCK TEMPLATE
