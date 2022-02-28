@@ -11,9 +11,10 @@ async function _getQuotes() {
 }
 
 async function _drawQuotes() {
-    let template = ''
-    // NEED THIS TO GO THROUGH THE OBJECT AND PRINT TEMPLATE
-    // ProxyState.quotes.forEach(q => template += q.QuotesTemplate)
+    let template = `<div class="justify-content-center align-items-center">
+        <span>${ProxyState.quotes.content}</span>
+        <span>${ProxyState.quotes.author}</span>
+        </div>`
     document.getElementById('quotes-message').innerHTML = template
 }
 
